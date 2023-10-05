@@ -1,0 +1,67 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg
+*.egg-info
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Logs and databases
+*.log
+*.sqlite3
+*.db
+
+# Backup files
+*.bak
+
+# Virtual environment
+venv/
+myenv/
+*.virtualenv/
+ENV/
+
+# IDE - PyCharm, VS Code, etc.
+.idea/
+*.swp
+*.swo
+.vscode/
+*.iml
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Django specific
+*.pot
+*.pyc
+
+# Media files (You might be using cloud storage like AWS S3)
+/media/
+
+# Static files (if not managed by a storage backend)
+# /static/
+
+# If you're using environment variables and have a .env file
+.env
+
+# Other tools
+*.sage.py
+*.cover
+celerybeat-schedule.db
+celerybeat.pid
+node_modules/
+db.sqlite3
