@@ -6,13 +6,13 @@ import uuid
 
 class Club(models.Model):
 
-    # TIER_CHOICES = (
-    #     ('FREE', 'Free'),
-    #     ('TIER1', 'Members Management - €49'),
-    #     ('TIER2', 'Advanced Features - €99'),
-    #     ('TIER3', 'Complete Access - €120'),
+    TIER_CHOICES = (
+        ('FREE', 'Free'),
+        ('TIER1', 'Members Management - €49'),
+        ('TIER2', 'Advanced Features - €99'),
+        ('TIER3', 'Complete Access - €120'),
 
-    # )
+    )
     club_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
     owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name="club")
     club_name = models.CharField(max_length=255)
@@ -29,11 +29,11 @@ class Club(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    # def has_feature(self, feature):
-    #     features = {
-    #         'FREE': ['VIEW_MEMBERS', 'ADD_MEMBERS'],
-    #         'TIER1': ['VIEW_MEMBERS', 'ADD_MEMBERS', 'MEMBERS_MANAGEMENT', 'ACCOUNTING'],
-    #         'TIER2': ['VIEW_MEMBERS', 'ADD_MEMBERS', 'MEMBERS_MANAGEMENT', 'ACCOUNTING', 'WEED_INVENTORY', 'BAR_INVENTORY'],
-    #         'TIER3': ['VIEW_MEMBERS', 'ADD_MEMBERS', 'MEMBERS_MANAGEMENT', 'ACCOUNTING', 'WEED_INVENTORY', 'BAR_INVENTORY', 'ANALYTICS', 'AI_PREDICTIONS'],
-    #     }
-    #     return feature in features.get(self.subscription_tier, [])
+    def has_feature(self, feature):
+        features = {
+            'FREE': ['VIEW_MEMBERS', 'ADD_MEMBERS'],
+            'TIER1': ['VIEW_MEMBERS', 'ADD_MEMBERS', 'MEMBERS_MANAGEMENT', 'ACCOUNTING'],
+            'TIER2': ['VIEW_MEMBERS', 'ADD_MEMBERS', 'MEMBERS_MANAGEMENT', 'ACCOUNTING', 'WEED_INVENTORY', 'BAR_INVENTORY'],
+            'TIER3': ['VIEW_MEMBERS', 'ADD_MEMBERS', 'MEMBERS_MANAGEMENT', 'ACCOUNTING', 'WEED_INVENTORY', 'BAR_INVENTORY', 'ANALYTICS', 'AI_PREDICTIONS'],
+        }
+        return feature in features.get(self.subscription_tier, [])
