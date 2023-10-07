@@ -6,9 +6,13 @@ class TierAccessMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
+        # Check if user is authenticated
         if request.user.is_authenticated:
             try:
+                # Try to get the club associated with the user
                 club = Club.objects.get(owner=request.user)
+
+                # Determine
                 required_feature = self.url_to_required_feature(request.path)
                 
                 if required_feature and not club.has_feature(required_feature):
