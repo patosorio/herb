@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Club Dashboard{% endblock %}
+
+{% block extra_css %}
+  <!-- If you have any extra CSS specific to the dashboard, link it here. -->
+  <!-- Example: <link href="{% static 'css/dashboard.css' %}" rel="stylesheet"> -->
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Welcome to {{ club.club_name }}'s Dashboard</h1>
+    <p>This is your club's management dashboard.</p>
+
+    <!-- Example Data Display -->
+    <div class="card mt-4">
+        <div class="card-header">
+            Club Information
+        </div>
+        <div class="card-body">
+            <p><strong>Club Name:</strong> {{ club.club_name }}</p>
+            <p><strong>Subscription Tier:</strong> {{ club.subscription_tier }}</p>
+            <!-- ... Add more club details as needed ... -->
+        </div>
+    </div>
+
+    <!-- Any other dashboard elements, sections, tables, etc. can go below. -->
+</div>
+{% endblock %}
+
+{% block extra_js %}
+  <!-- If you have any extra JS specific to the dashboard, link or add it here. -->
+  <!-- Example: <script src="{% static 'js/dashboard.js' %}"></script> -->
+{% endblock %}
